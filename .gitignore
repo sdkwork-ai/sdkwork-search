@@ -72,3 +72,5 @@ Thumbs.db
 *.log
 .DS_Store
 Thumbs.db
+# Runtime-generated environment configuration
+**/public/runtime-env.json
