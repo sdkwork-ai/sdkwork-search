@@ -10,8 +10,10 @@ name = "sdkwork_api_search_assembly"
 path = "src/lib.rs"
 
 [dependencies]
-axum = { workspace = true, features = ["multipart"] }
+axum.workspace = true
 tokio.workspace = true
+sdkwork-web-bootstrap.workspace = true
+sdkwork-web-core.workspace = true
 tracing.workspace = true
 sqlx.workspace = true
 serde.workspace = true
@@ -20,8 +22,6 @@ anyhow.workspace = true
 async-trait.workspace = true
 uuid.workspace = true
 chrono.workspace = true
-sdkwork-web-bootstrap.workspace = true
-sdkwork-web-core.workspace = true
 sdkwork-database-config.workspace = true
 sdkwork-utils-rust.workspace = true
 sdkwork-drive-storage-local.workspace = true

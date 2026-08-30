@@ -1,41 +1,177 @@
 {
-  "schemaVersion": 1,
-  "kind": "sdkwork.app.config",
-  "application": {
-    "code": "sdkwork-search-flutter-mobile",
-    "name": "SDKWork Search Flutter Mobile",
-    "description": "Flutter mobile search application for SDKWork.",
-    "version": "0.1.0",
-    "runtime": {
-      "family": "mobile",
-      "framework": "flutter",
-      "targets": [
-        "ios",
-        "android"
-      ]
-    },
-    "domain": "intelligence",
-    "capability": "search",
-    "owner": "sdkwork-search"
+  "schemaVersion": 3,
+  "kind": "sdkwork.app",
+  "app": {
+    "key": "app-9pf3un",
+    "name": "App 9pf3un",
+    "displayName": "App 9pf3un",
+    "officialWebsiteUrl": "https://sdkwork.com/apps/app-9pf3un",
+    "appType": "APP_HTML"
   },
-  "specs": {
-    "root": "../sdkwork-specs",
-    "architecture": "FLUTTER_APP_MOBILE_ARCHITECTURE_SPEC.md",
-    "ui": "APP_FLUTTER_UI_SPEC.md"
-  },
-  "packages": {
-    "workspace": "pubspec.yaml"
-  },
-  "verification": {
-    "commands": [
-      "flutter analyze",
-      "flutter test"
-    ]
-  },
+  "backend": {},
   "runtime": {
     "supportedDeploymentProfiles": [
       "cloud"
     ],
-    "defaultDeploymentProfile": "cloud"
+    "defaultDeploymentProfile": "cloud",
+    "family": "server",
+    "framework": "rust-axum"
+  },
+  "media": {
+    "icons": {
+      "primary": {
+        "id": "app-9pf3un-primary-icon",
+        "type": "ICON",
+        "purpose": "PRIMARY",
+        "url": "https://cdn.sdkwork.com/apps/app-9pf3un/assets/icon-1024.png",
+        "platform": "APP",
+        "locale": "en-US",
+        "width": 1024,
+        "height": 1024,
+        "format": "PNG",
+        "fileSizeBytes": 524288,
+        "alphaChannel": false,
+        "sortOrder": 0,
+        "enabled": true,
+        "metadata": {
+          "generatedPlaceholder": true
+        }
+      },
+      "platform": [],
+      "metadata": {
+        "generatedPlaceholder": true
+      }
+    },
+    "screenshots": [
+      {
+        "id": "app-9pf3un-web-screenshot",
+        "type": "SCREENSHOT",
+        "purpose": "CATALOG_SCREENSHOT",
+        "url": "https://cdn.sdkwork.com/apps/app-9pf3un/media/web-screenshot.png",
+        "platform": "WEB",
+        "locale": "en-US",
+        "deviceClass": "BROWSER",
+        "displayType": "WEB_DESKTOP",
+        "width": 1920,
+        "height": 1080,
+        "format": "PNG",
+        "fileSizeBytes": 1048576,
+        "alphaChannel": false,
+        "caption": "App 9pf3un product screenshot.",
+        "sortOrder": 0,
+        "enabled": true,
+        "metadata": {
+          "generatedPlaceholder": true,
+          "altText": "App 9pf3un app screenshot."
+        }
+      }
+    ],
+    "previews": [
+      {
+        "id": "app-9pf3un-catalog-preview",
+        "type": "PREVIEW_IMAGE",
+        "purpose": "CATALOG_PREVIEW",
+        "url": "https://cdn.sdkwork.com/apps/app-9pf3un/media/preview-cover.png",
+        "platform": "WEB",
+        "locale": "en-US",
+        "width": 1600,
+        "height": 900,
+        "format": "PNG",
+        "fileSizeBytes": 786432,
+        "alphaChannel": false,
+        "caption": "App 9pf3un preview.",
+        "sortOrder": 0,
+        "enabled": true,
+        "metadata": {
+          "generatedPlaceholder": true,
+          "altText": "App 9pf3un preview cover."
+        }
+      }
+    ],
+    "metadata": {
+      "assetVersion": "0.1.0",
+      "defaultLocale": "en-US"
+    }
+  },
+  "publish": {
+    "status": "ACTIVE",
+    "platforms": [
+      "WEB"
+    ],
+    "installPlatforms": [
+      "WEB"
+    ],
+    "defaultPackageId": "linux-x64-cloud-server-tar-gz",
+    "installSkill": {
+      "name": "sdkwork-skills-app"
+    },
+    "stores": [],
+    "storeUrl": "https://sdkwork.com/apps/app-9pf3un"
+  },
+  "artifacts": {
+    "installConfig": {
+      "defaultPackageId": "linux-x64-cloud-server-tar-gz",
+      "installCommand": "sdkwork install app-9pf3un",
+      "launchCommand": "sdkwork open app-9pf3un",
+      "uninstallCommand": "sdkwork uninstall app-9pf3un",
+      "packages": [
+        {
+          "id": "linux-x64-cloud-server-tar-gz",
+          "name": "App 9pf3un cloud server archive",
+          "sourceType": "BINARY_URL",
+          "packageFormat": "TAR_GZ",
+          "platform": "API",
+          "url": "https://cdn.sdkwork.com/apps/app-9pf3un/STABLE/0.1.0/linux-x64-cloud-server-tar-gz-0.1.0.tar.gz",
+          "architecture": "x64",
+          "checksumAlgorithm": "SHA-256",
+          "checksum": "a23d0b5951a4e35091bce29d0b7c5661f786fc8643de804d17d95a381772bee0",
+          "deploymentProfile": "cloud",
+          "runtimeTarget": "server",
+          "profileBinding": "fixed",
+          "enabled": true,
+          "metadata": {
+            "releaseBuildDeferred": false
+          }
+        }
+      ]
+    }
+  },
+  "release": {
+    "currentVersion": "0.1.0",
+    "defaultChannel": "STABLE",
+    "latest": {
+      "STABLE": "0.1.0"
+    },
+    "notes": [
+      {
+        "version": "0.1.0",
+        "releaseChannel": "STABLE",
+        "title": "App 9pf3un 0.1.0",
+        "summary": "App 9pf3un initialized standard release.",
+        "content": "Initial SDKWork App Standard v3 manifest for App 9pf3un.",
+        "highlights": [
+          "SDKWork App Standard v3 configuration initialized",
+          "platform_app projection metadata standardized",
+          "Download package matrix normalized"
+        ],
+        "packageIds": [
+          "linux-x64-cloud-server-tar-gz"
+        ],
+        "publishedAt": "2026-05-07T00:00:00Z",
+        "current": true,
+        "forceUpdate": false,
+        "minSupportedVersion": "0.1.0",
+        "metadata": {}
+      }
+    ]
+  },
+  "security": {
+    "checksumRequired": false,
+    "signatureRequired": false,
+    "sbomRequired": false
+  },
+  "metadata": {
+    "deploymentConfig": "etc/sdkwork.deployment.config.json",
+    "standardOwner": "sdkwork-platform"
   }
 }

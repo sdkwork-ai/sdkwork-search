@@ -34,7 +34,7 @@
           "search"
         ],
         "summary": "List search indexes for backend administration.",
-        "operationId": "search.indexes.list",
+        "operationId": "indexes.list",
         "parameters": [
           {
             "name": "q",
@@ -64,6 +64,16 @@
               "minimum": 1,
               "maximum": 200,
               "default": 20
+            }
+          },
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
             }
           }
         ],
@@ -196,16 +206,16 @@
           "search"
         ],
         "summary": "Create a search index.",
-        "operationId": "search.indexes.create",
+        "operationId": "indexes.create",
         "parameters": [
           {
             "name": "Idempotency-Key",
             "in": "header",
-            "required": false,
+            "required": true,
             "schema": {
               "type": "string",
               "minLength": 1,
-              "maxLength": 256
+              "maxLength": 128
             },
             "description": "Client retry key for retriable create commands."
           }
@@ -343,7 +353,7 @@
           "search"
         ],
         "summary": "Update a search index.",
-        "operationId": "search.indexes.update",
+        "operationId": "indexes.update",
         "parameters": [
           {
             "name": "indexId",
@@ -351,6 +361,16 @@
             "required": true,
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
             }
           }
         ],
@@ -485,7 +505,7 @@
           "search"
         ],
         "summary": "Delete a search index.",
-        "operationId": "search.indexes.delete",
+        "operationId": "indexes.delete",
         "parameters": [
           {
             "name": "indexId",
@@ -493,6 +513,16 @@
             "required": true,
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
             }
           }
         ],
@@ -589,7 +619,7 @@
           "search"
         ],
         "summary": "Upsert a document into a search index.",
-        "operationId": "search.documents.update",
+        "operationId": "documents.update",
         "parameters": [
           {
             "name": "indexId",
@@ -605,6 +635,16 @@
             "required": true,
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
             }
           }
         ],
@@ -739,7 +779,7 @@
           "search"
         ],
         "summary": "Delete a document from a search index.",
-        "operationId": "search.documents.delete",
+        "operationId": "documents.delete",
         "parameters": [
           {
             "name": "indexId",
@@ -755,6 +795,16 @@
             "required": true,
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
             }
           }
         ],
@@ -851,7 +901,7 @@
           "search"
         ],
         "summary": "Bulk upsert documents into a search index.",
-        "operationId": "search.documents.bulkUpsert",
+        "operationId": "documents.bulkUpsert",
         "parameters": [
           {
             "name": "indexId",
@@ -864,11 +914,11 @@
           {
             "name": "Idempotency-Key",
             "in": "header",
-            "required": false,
+            "required": true,
             "schema": {
               "type": "string",
               "minLength": 1,
-              "maxLength": 256
+              "maxLength": 128
             },
             "description": "Client retry key for retriable create commands."
           }
@@ -1006,7 +1056,7 @@
           "search"
         ],
         "summary": "List search synonyms for backend administration.",
-        "operationId": "search.synonyms.list",
+        "operationId": "synonyms.list",
         "parameters": [
           {
             "name": "q",
@@ -1036,6 +1086,16 @@
               "minimum": 1,
               "maximum": 200,
               "default": 20
+            }
+          },
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
             }
           }
         ],
@@ -1168,16 +1228,16 @@
           "search"
         ],
         "summary": "Create a search synonym.",
-        "operationId": "search.synonyms.create",
+        "operationId": "synonyms.create",
         "parameters": [
           {
             "name": "Idempotency-Key",
             "in": "header",
-            "required": false,
+            "required": true,
             "schema": {
               "type": "string",
               "minLength": 1,
-              "maxLength": 256
+              "maxLength": 128
             },
             "description": "Client retry key for retriable create commands."
           }
@@ -1315,7 +1375,7 @@
           "search"
         ],
         "summary": "Delete a search synonym.",
-        "operationId": "search.synonyms.delete",
+        "operationId": "synonyms.delete",
         "parameters": [
           {
             "name": "synonymId",
@@ -1323,6 +1383,16 @@
             "required": true,
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
             }
           }
         ],
@@ -1419,7 +1489,7 @@
           "search"
         ],
         "summary": "List search ranking profiles.",
-        "operationId": "search.rankingProfiles.list",
+        "operationId": "rankingProfiles.list",
         "parameters": [
           {
             "name": "q",
@@ -1449,6 +1519,16 @@
               "minimum": 1,
               "maximum": 200,
               "default": 20
+            }
+          },
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
             }
           }
         ],
@@ -1581,16 +1661,16 @@
           "search"
         ],
         "summary": "Create a search ranking profile.",
-        "operationId": "search.rankingProfiles.create",
+        "operationId": "rankingProfiles.create",
         "parameters": [
           {
             "name": "Idempotency-Key",
             "in": "header",
-            "required": false,
+            "required": true,
             "schema": {
               "type": "string",
               "minLength": 1,
-              "maxLength": 256
+              "maxLength": 128
             },
             "description": "Client retry key for retriable create commands."
           }
@@ -1728,7 +1808,7 @@
           "search"
         ],
         "summary": "Update a search ranking profile.",
-        "operationId": "search.rankingProfiles.update",
+        "operationId": "rankingProfiles.update",
         "parameters": [
           {
             "name": "profileId",
@@ -1736,6 +1816,16 @@
             "required": true,
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
             }
           }
         ],
@@ -1872,7 +1962,7 @@
           "search"
         ],
         "summary": "List search recommendation strategies.",
-        "operationId": "search.recommendationStrategies.list",
+        "operationId": "recommendationStrategies.list",
         "parameters": [
           {
             "name": "q",
@@ -1902,6 +1992,16 @@
               "minimum": 1,
               "maximum": 200,
               "default": 20
+            }
+          },
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
             }
           }
         ],
@@ -2034,16 +2134,16 @@
           "search"
         ],
         "summary": "Create a search recommendation strategy.",
-        "operationId": "search.recommendationStrategies.create",
+        "operationId": "recommendationStrategies.create",
         "parameters": [
           {
             "name": "Idempotency-Key",
             "in": "header",
-            "required": false,
+            "required": true,
             "schema": {
               "type": "string",
               "minLength": 1,
-              "maxLength": 256
+              "maxLength": 128
             },
             "description": "Client retry key for retriable create commands."
           }
@@ -2181,7 +2281,7 @@
           "search"
         ],
         "summary": "Update a search recommendation strategy.",
-        "operationId": "search.recommendationStrategies.update",
+        "operationId": "recommendationStrategies.update",
         "parameters": [
           {
             "name": "strategyId",
@@ -2189,6 +2289,16 @@
             "required": true,
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
             }
           }
         ],
@@ -2325,7 +2435,7 @@
           "search"
         ],
         "summary": "List search promotions.",
-        "operationId": "search.promotions.list",
+        "operationId": "promotions.list",
         "parameters": [
           {
             "name": "q",
@@ -2355,6 +2465,16 @@
               "minimum": 1,
               "maximum": 200,
               "default": 20
+            }
+          },
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
             }
           }
         ],
@@ -2487,16 +2607,16 @@
           "search"
         ],
         "summary": "Create a search promotion.",
-        "operationId": "search.promotions.create",
+        "operationId": "promotions.create",
         "parameters": [
           {
             "name": "Idempotency-Key",
             "in": "header",
-            "required": false,
+            "required": true,
             "schema": {
               "type": "string",
               "minLength": 1,
-              "maxLength": 256
+              "maxLength": 128
             },
             "description": "Client retry key for retriable create commands."
           }
@@ -2634,7 +2754,7 @@
           "search"
         ],
         "summary": "Update a search promotion.",
-        "operationId": "search.promotions.update",
+        "operationId": "promotions.update",
         "parameters": [
           {
             "name": "promotionId",
@@ -2642,6 +2762,16 @@
             "required": true,
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
             }
           }
         ],
@@ -2776,7 +2906,7 @@
           "search"
         ],
         "summary": "Delete a search promotion.",
-        "operationId": "search.promotions.delete",
+        "operationId": "promotions.delete",
         "parameters": [
           {
             "name": "promotionId",
@@ -2784,6 +2914,16 @@
             "required": true,
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
             }
           }
         ],
@@ -2880,7 +3020,7 @@
           "search"
         ],
         "summary": "List semantic embedding jobs.",
-        "operationId": "search.embeddingJobs.list",
+        "operationId": "embeddingJobs.list",
         "parameters": [
           {
             "name": "q",
@@ -2910,6 +3050,16 @@
               "minimum": 1,
               "maximum": 200,
               "default": 20
+            }
+          },
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
             }
           }
         ],
@@ -3042,16 +3192,16 @@
           "search"
         ],
         "summary": "Create a semantic embedding job.",
-        "operationId": "search.embeddingJobs.create",
+        "operationId": "embeddingJobs.create",
         "parameters": [
           {
             "name": "Idempotency-Key",
             "in": "header",
-            "required": false,
+            "required": true,
             "schema": {
               "type": "string",
               "minLength": 1,
-              "maxLength": 256
+              "maxLength": 128
             },
             "description": "Client retry key for retriable create commands."
           }
@@ -3189,7 +3339,7 @@
           "search"
         ],
         "summary": "Retry a semantic embedding job.",
-        "operationId": "search.embeddingJobs.retry",
+        "operationId": "embeddingJobs.retry",
         "parameters": [
           {
             "name": "jobId",
@@ -3197,6 +3347,16 @@
             "required": true,
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
             }
           }
         ],
@@ -3323,7 +3483,7 @@
           "search"
         ],
         "summary": "List search A/B experiments.",
-        "operationId": "search.abExperiments.list",
+        "operationId": "abExperiments.list",
         "parameters": [
           {
             "name": "q",
@@ -3353,6 +3513,16 @@
               "minimum": 1,
               "maximum": 200,
               "default": 20
+            }
+          },
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
             }
           }
         ],
@@ -3485,16 +3655,16 @@
           "search"
         ],
         "summary": "Create a search A/B experiment.",
-        "operationId": "search.abExperiments.create",
+        "operationId": "abExperiments.create",
         "parameters": [
           {
             "name": "Idempotency-Key",
             "in": "header",
-            "required": false,
+            "required": true,
             "schema": {
               "type": "string",
               "minLength": 1,
-              "maxLength": 256
+              "maxLength": 128
             },
             "description": "Client retry key for retriable create commands."
           }
@@ -3632,7 +3802,7 @@
           "search"
         ],
         "summary": "Update a search A/B experiment.",
-        "operationId": "search.abExperiments.update",
+        "operationId": "abExperiments.update",
         "parameters": [
           {
             "name": "experimentId",
@@ -3640,6 +3810,16 @@
             "required": true,
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
             }
           }
         ],
@@ -3776,7 +3956,7 @@
           "search"
         ],
         "summary": "Assign a subject to a search A/B experiment variant.",
-        "operationId": "search.abExperiments.create",
+        "operationId": "abExperiments.create",
         "parameters": [
           {
             "name": "experimentId",
@@ -3789,11 +3969,11 @@
           {
             "name": "Idempotency-Key",
             "in": "header",
-            "required": false,
+            "required": true,
             "schema": {
               "type": "string",
               "minLength": 1,
-              "maxLength": 256
+              "maxLength": 128
             },
             "description": "Client retry key for retriable create commands."
           }
@@ -3931,16 +4111,16 @@
           "search"
         ],
         "summary": "Create a search index rebuild job.",
-        "operationId": "search.jobs.rebuild.rebuild",
+        "operationId": "jobs.rebuild.rebuild",
         "parameters": [
           {
             "name": "Idempotency-Key",
             "in": "header",
-            "required": false,
+            "required": true,
             "schema": {
               "type": "string",
               "minLength": 1,
-              "maxLength": 256
+              "maxLength": 128
             },
             "description": "Client retry key for retriable create commands."
           }
@@ -4078,8 +4258,19 @@
           "search"
         ],
         "summary": "Retrieve search analytics overview.",
-        "operationId": "search.analytics.overview.retrieve",
-        "parameters": [],
+        "operationId": "analytics.overview.retrieve",
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "Success",
@@ -4203,7 +4394,7 @@
           "search"
         ],
         "summary": "List configured search providers.",
-        "operationId": "search.providers.list",
+        "operationId": "providers.list",
         "parameters": [
           {
             "name": "q",
@@ -4233,6 +4424,16 @@
               "minimum": 1,
               "maximum": 200,
               "default": 20
+            }
+          },
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
             }
           }
         ],
@@ -4365,16 +4566,16 @@
           "search"
         ],
         "summary": "Create a search provider configuration.",
-        "operationId": "search.providers.create",
+        "operationId": "providers.create",
         "parameters": [
           {
             "name": "Idempotency-Key",
             "in": "header",
-            "required": false,
+            "required": true,
             "schema": {
               "type": "string",
               "minLength": 1,
-              "maxLength": 256
+              "maxLength": 128
             },
             "description": "Client retry key for retriable create commands."
           }
@@ -4512,7 +4713,7 @@
           "search"
         ],
         "summary": "Update a search provider configuration.",
-        "operationId": "search.providers.update",
+        "operationId": "providers.update",
         "parameters": [
           {
             "name": "providerId",
@@ -4520,6 +4721,16 @@
             "required": true,
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
             }
           }
         ],
@@ -4656,7 +4867,7 @@
           "search"
         ],
         "summary": "Run a search provider health check.",
-        "operationId": "search.providers.healthChecks.create",
+        "operationId": "providers.healthChecks.create",
         "parameters": [
           {
             "name": "providerId",
@@ -4664,6 +4875,16 @@
             "required": true,
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
             }
           }
         ],

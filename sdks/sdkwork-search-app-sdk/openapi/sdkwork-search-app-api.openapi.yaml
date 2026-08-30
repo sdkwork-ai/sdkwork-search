@@ -34,7 +34,7 @@
           "search"
         ],
         "summary": "Create a search query.",
-        "operationId": "search.queries.create",
+        "operationId": "queries.create",
         "parameters": [],
         "responses": {
           "201": {
@@ -177,7 +177,7 @@
           "search"
         ],
         "summary": "List search indexes visible to the current app principal.",
-        "operationId": "search.indexes.list",
+        "operationId": "indexes.list",
         "parameters": [
           {
             "name": "q",
@@ -207,6 +207,16 @@
               "minimum": 1,
               "maximum": 200,
               "default": 20
+            }
+          },
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
             }
           }
         ],
@@ -341,7 +351,7 @@
           "search"
         ],
         "summary": "List search suggestions for app clients.",
-        "operationId": "search.suggestions.list",
+        "operationId": "suggestions.list",
         "parameters": [
           {
             "name": "q",
@@ -430,6 +440,16 @@
             },
             "style": "form",
             "explode": true
+          },
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
+            }
           }
         ],
         "responses": {
@@ -563,7 +583,7 @@
           "search"
         ],
         "summary": "Create an explainable recommendation response.",
-        "operationId": "search.recommendations.create",
+        "operationId": "recommendations.create",
         "parameters": [],
         "responses": {
           "201": {
@@ -706,7 +726,7 @@
           "search"
         ],
         "summary": "Create a promotion delivery response for an app placement.",
-        "operationId": "search.promotions.create",
+        "operationId": "promotions.create",
         "parameters": [],
         "responses": {
           "201": {
@@ -849,7 +869,7 @@
           "search"
         ],
         "summary": "Record a search or recommendation feedback event.",
-        "operationId": "search.events.create",
+        "operationId": "events.create",
         "parameters": [],
         "responses": {
           "201": {
@@ -984,7 +1004,7 @@
           "search"
         ],
         "summary": "List recent search queries for the current app principal.",
-        "operationId": "search.recentQueries.list",
+        "operationId": "recentQueries.list",
         "parameters": [
           {
             "name": "q",
@@ -1014,6 +1034,16 @@
               "minimum": 1,
               "maximum": 200,
               "default": 20
+            }
+          },
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
             }
           }
         ],
@@ -1148,7 +1178,7 @@
           "search"
         ],
         "summary": "Create a semantic search query with lexical fallback.",
-        "operationId": "search.semanticQueries.create",
+        "operationId": "semanticQueries.create",
         "parameters": [],
         "responses": {
           "201": {
