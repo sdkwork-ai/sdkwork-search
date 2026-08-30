@@ -41,11 +41,11 @@ use sdkwork_search_query_service::QueryService;
 use sdkwork_search_recommendation_service::RecommendationService;
 use sdkwork_utils_rust::sha256_hash;
 use sdkwork_web_bootstrap::{
-    ApiAssemblyContribution, CompositeReadinessCheck, PgPoolReadinessCheck, ReadinessCheck,
+    CompositeReadinessCheck, PgPoolReadinessCheck, ReadinessCheck,
 };
 use sdkwork_web_core::HttpRouteManifest;
 use serde::Serialize;
-use sqlx::{AnyPool, PgPool};
+use sqlx::PgPool;
 use uuid::Uuid;
 
 pub use sdkwork_web_bootstrap::ApiAssemblyContribution;
@@ -232,9 +232,9 @@ struct DriveDocumentUploader {
 }
 
 impl DriveDocumentUploader {
-    /// 构造适配器：传入 AnyPool（Drive 仓库依赖）、本地对象存储与应用标识。
+    /// 构造适配器：传入 PgPool（Drive 仓库依赖）、本地对象存储与应用标识。
     fn new(
-        pool: AnyPool,
+        pool: PgPool,
         object_store: LocalDriveObjectStore,
         app_id: impl Into<String>,
     ) -> Self {
@@ -337,10 +337,9 @@ async fn build_application_state(
     let database_pool = connect_database_pool(&config.database_url).await?;
     let provider_registry = build_provider_registry(&config.provider_configs)?;
 
-    // Drive 文档上传适配器：使用独立的 AnyPool（Drive 仓库依赖）与本地对象存储。
-    // AnyPool 采用懒连接，避免在 Drive schema 未就绪时阻断 standalone-gateway 启动。
-    sqlx::any::install_default_drivers();
-    let drive_pool = sqlx::any::AnyPoolOptions::new()
+    // Drive 文档上传适配器：使用独立的 PgPool（Drive 仓库依赖）与本地对象存储。
+    // PgPool 采用懒连接，避免在 Drive schema 未就绪时阻断 standalone-gateway 启动。
+    let drive_pool = sqlx::postgres::PgPoolOptions::new()
         .max_connections(5)
         .connect_lazy(&config.database_url)
         .map_err(|err| anyhow::anyhow!("failed to create drive upload pool: {err}"))?;
@@ -534,7 +533,7 @@ fn combined_route_manifest() -> HttpRouteManifest {
         sdkwork_routes_search_backend_api::gateway_route_manifest(),
     ]
     .into_iter()
-    .flat_map(|manifest| manifest.routes().to_vec())
+    .flat_map(|manifest| manifest.iter().cloned())
     .collect();
     HttpRouteManifest::from_owned_routes(routes)
 }

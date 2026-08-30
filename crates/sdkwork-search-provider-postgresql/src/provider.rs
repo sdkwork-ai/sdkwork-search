@@ -265,7 +265,7 @@ impl SearchProvider for PostgresqlSearchProvider {
         );
 
         // --- Bind parameters ---
-        let mut q = sqlx::query(&sql)
+        let mut q = sqlx::query(sqlx::AssertSqlSafe(sql))
             .bind(ctx.tenant_id)
             .bind(ctx.organization_id)
             .bind(&query.index_key);
@@ -753,7 +753,7 @@ impl PostgresqlSearchProvider {
             );
 
             // Rebuild bindings for facet query (only tenant/org/index)
-            let rows: Vec<(Option<String>, i64)> = sqlx::query_as(&sql)
+            let rows: Vec<(Option<String>, i64)> = sqlx::query_as(sqlx::AssertSqlSafe(sql))
                 .bind(ctx.tenant_id)
                 .bind(ctx.organization_id)
                 .bind(&query.index_key)
