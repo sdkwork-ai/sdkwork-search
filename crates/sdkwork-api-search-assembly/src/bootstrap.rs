@@ -41,7 +41,7 @@ use sdkwork_search_query_service::QueryService;
 use sdkwork_search_recommendation_service::RecommendationService;
 use sdkwork_utils_rust::sha256_hash;
 use sdkwork_web_bootstrap::{
-    CompositeReadinessCheck, PgPoolReadinessCheck, ReadinessCheck,
+    CompositeReadinessCheck, PgPoolReadinessCheck, ReadinessCheck, WebModule,
 };
 use sdkwork_web_core::HttpRouteManifest;
 use serde::Serialize;
@@ -233,11 +233,7 @@ struct DriveDocumentUploader {
 
 impl DriveDocumentUploader {
     /// 构造适配器：传入 PgPool（Drive 仓库依赖）、本地对象存储与应用标识。
-    fn new(
-        pool: PgPool,
-        object_store: LocalDriveObjectStore,
-        app_id: impl Into<String>,
-    ) -> Self {
+    fn new(pool: PgPool, object_store: LocalDriveObjectStore, app_id: impl Into<String>) -> Self {
         let store = SqlUploaderStore::new(pool);
         let service = DriveUploaderService::new(store);
         Self {
@@ -541,7 +537,9 @@ fn combined_route_manifest() -> HttpRouteManifest {
 fn search_business_router(app_state: SearchAppState, backend_state: SearchBackendState) -> Router {
     Router::new()
         .merge(sdkwork_routes_search_app_api::gateway_mount(app_state))
-        .merge(sdkwork_routes_search_backend_api::gateway_mount(backend_state))
+        .merge(sdkwork_routes_search_backend_api::gateway_mount(
+            backend_state,
+        ))
 }
 
 pub fn assemble_api_router(
@@ -599,4 +597,13 @@ pub async fn assemble_api_router_from_env() -> Result<ApiAssembly, String> {
         build_readiness_check(state.database_pool),
     )
     .map_err(|error| format!("search assembly contribution contract is invalid: {error}"))
+}
+
+/// Canonical Web Module definition for this application
+/// (API_ASSEMBLY_SPEC §4.1.1): the complete HTTP surface — every route,
+/// manifest, and OpenAPI document of this owner — as one installable module.
+pub async fn web_module() -> Result<WebModule, String> {
+    Ok(WebModule::from_contribution(
+        assemble_api_router_from_env().await?,
+    ))
 }

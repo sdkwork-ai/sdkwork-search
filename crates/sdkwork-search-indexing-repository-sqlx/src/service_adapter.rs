@@ -259,9 +259,13 @@ impl IndexingRepositoryPort for SearchRepositoryAdapter {
             title: title
                 .map(|s| s.to_string())
                 .unwrap_or_else(|| row.title.clone()),
-            description: description.map(|s| s.to_string()).or(row.description.clone()),
+            description: description
+                .map(|s| s.to_string())
+                .or(row.description.clone()),
             status: status.unwrap_or(row.status),
-            config_json: config_json.cloned().unwrap_or_else(|| row.config_json.clone()),
+            config_json: config_json
+                .cloned()
+                .unwrap_or_else(|| row.config_json.clone()),
         };
         self.index_repo
             .update_index(&params)
@@ -387,12 +391,7 @@ impl IndexingRepositoryPort for SearchRepositoryAdapter {
         debug!(%index_key, %document_id, "getting document");
         let row = self
             .document_repo
-            .get_document(
-                ctx.tenant_id,
-                ctx.organization_id,
-                index_key,
-                document_id,
-            )
+            .get_document(ctx.tenant_id, ctx.organization_id, index_key, document_id)
             .await
             .map_err(|e| e.to_string())?;
         Ok(row.as_ref().map(document_row_to_summary))
@@ -645,8 +644,7 @@ impl PromotionRepositoryPort for SearchRepositoryAdapter {
         input: &CreatePromotionInput,
     ) -> Result<Promotion, String> {
         debug!(promotion_key = %input.promotion_key, "creating promotion");
-        let rule_json =
-            serde_json::to_value(&input.rules).unwrap_or(serde_json::json!([]));
+        let rule_json = serde_json::to_value(&input.rules).unwrap_or(serde_json::json!([]));
         let params = CreatePromotionParams {
             id: now_id(),
             tenant_id: ctx.tenant_id,
@@ -673,9 +671,7 @@ impl PromotionRepositoryPort for SearchRepositoryAdapter {
         patch: &UpdatePromotionInput,
     ) -> Result<Promotion, String> {
         debug!(%promotion_id, "updating promotion");
-        let placement = patch
-            .placement
-            .map(|p| placement_to_str(p).to_string());
+        let placement = patch.placement.map(|p| placement_to_str(p).to_string());
         let rule_json = patch
             .rules
             .as_ref()
@@ -727,17 +723,16 @@ impl PromotionRepositoryPort for SearchRepositoryAdapter {
         let page_size = page_size.max(1);
         let limit = page_size as i64;
         let offset = ((page - 1) as i64) * limit;
-        let rows = sqlx::query_as::<sqlx::Postgres, SearchPromotionRow>(
-            queries::PROMOTION_LIST_ALL,
-        )
-        .bind(ctx.tenant_id)
-        .bind(ctx.organization_id)
-        .bind(index_key)
-        .bind(limit)
-        .bind(offset)
-        .fetch_all(self.promotion_repo.pool())
-        .await
-        .map_err(|e| e.to_string())?;
+        let rows =
+            sqlx::query_as::<sqlx::Postgres, SearchPromotionRow>(queries::PROMOTION_LIST_ALL)
+                .bind(ctx.tenant_id)
+                .bind(ctx.organization_id)
+                .bind(index_key)
+                .bind(limit)
+                .bind(offset)
+                .fetch_all(self.promotion_repo.pool())
+                .await
+                .map_err(|e| e.to_string())?;
         Ok(rows.iter().map(promotion_row_to_domain).collect())
     }
 

@@ -218,16 +218,14 @@ pub const DOCUMENT_SEMANTIC_SEARCH: &str = document_select!(
 /// bind order: tenant_id, organization_id, index_key
 ///
 /// 统计索引内未软删除的文档数量。
-pub const DOCUMENT_COUNT: &str =
-    "SELECT COUNT(*) AS count FROM search_document \
+pub const DOCUMENT_COUNT: &str = "SELECT COUNT(*) AS count FROM search_document \
      WHERE tenant_id = :tenant_id AND organization_id = :organization_id \
        AND index_key = :index_key AND deleted_at IS NULL";
 
 /// bind order: tenant_id, organization_id, index_key
 ///
 /// 单行聚合：文档总数、活跃文档数（status=1）、最后更新时间。
-pub const DOCUMENT_STATS: &str =
-    "SELECT COUNT(*) AS document_count, \
+pub const DOCUMENT_STATS: &str = "SELECT COUNT(*) AS document_count, \
             COUNT(*) FILTER (WHERE status = 1) AS active_document_count, \
             MAX(updated_at) AS last_updated \
      FROM search_document \
@@ -430,8 +428,7 @@ pub const PROMOTION_GET: &str = promotion_select!(
 ///             active_until, tenant_id, organization_id, promotion_key
 ///
 /// 按字段补丁更新推广；`None` 字段通过 `COALESCE` 保留原值。
-pub const PROMOTION_UPDATE: &str =
-    "UPDATE search_promotion SET \
+pub const PROMOTION_UPDATE: &str = "UPDATE search_promotion SET \
        placement = COALESCE(:placement, placement), \
        document_id = COALESCE(:document_id, document_id), \
        priority = COALESCE(:priority, priority), \

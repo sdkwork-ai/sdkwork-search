@@ -62,7 +62,7 @@ sdkwork-routes-search-backend-api = { path = "crates/sdkwork-routes-search-backe
 
 # Common third-party dependencies (aligned with sdkwork-web-framework versions)
 async-trait = "0.1"
-axum = { version = "0.8", features = ["ws"] }
+axum = { version = "0.8", features = ["ws", "multipart"] }
 futures-util = "0.3"
 http = "1"
 serde = { version = "1.0", features = ["derive"] }
