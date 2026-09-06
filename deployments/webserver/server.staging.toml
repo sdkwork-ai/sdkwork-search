@@ -4,6 +4,6 @@ environment = "staging"
 
 [[http.server]]
 listen = ["80"]
-serverName = ["search-staging.sdkwork.com", "search-staging.birdcoder.com", "search-staging.dtupay.com", "search-staging.sdkwork.cn", "search-staging.birdcoder.cn", "search-staging.dtupay.cn", "search-staging.skubc.com", "search-staging.skubc.cn", "search-staging.zowalk.com", "search-staging.zowalk.cn", "search-staging.offer86.com", "search-staging.offer86.cn", "search-staging.86offer.com", "search-staging.86offer.cn"]
+serverName = ["search-staging.sdkwork.com", "search-staging.birdcoder.com", "search-staging.dtupay.com", "search-staging.noaper.com", "search-staging.sdkwork.cn", "search-staging.birdcoder.cn", "search-staging.dtupay.cn", "search-staging.noaper.cn", "search-staging.skubc.com", "search-staging.skubc.cn", "search-staging.zowalk.com", "search-staging.zowalk.cn", "search-staging.offer86.com", "search-staging.offer86.cn", "search-staging.86offer.com", "search-staging.86offer.cn"]
 include = ["snippets/gateway-locations.nonproduction.conf"]
 
