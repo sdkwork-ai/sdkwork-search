@@ -6,8 +6,15 @@
   "type": "module",
   "packageManager": "pnpm@10.33.0",
   "scripts": {
-    "stop": "node ../sdkwork-specs/tools/stop-sdkwork-workspace-processes.mjs --workspace .",
-    "test": "vitest run",
+    "stop": "pnpm exec sdkwork-app stop",
+    "dev": "pnpm dev:standalone",
+    "dev:standalone": "pnpm exec sdkwork-app dev --deployment-profile standalone",
+    "dev:cloud": "pnpm exec sdkwork-app dev --deployment-profile cloud",
+    "build": "pnpm exec sdkwork-app build",
+    "test": "pnpm exec sdkwork-app test",
+    "check": "pnpm exec sdkwork-app check",
+    "verify": "pnpm exec sdkwork-app verify",
+    "clean": "pnpm exec sdkwork-app clean",
     "test:contracts": "vitest run apps/sdkwork-search-common/packages/sdkwork-search-contracts/tests/searchContracts.test.ts",
     "test:pc-react": "vitest run apps/sdkwork-search-pc/packages/sdkwork-search-pc-react/tests/search.test.ts",
     "test:h5-react": "vitest run apps/sdkwork-search-h5/packages/sdkwork-search-h5-react/tests/search.test.ts",
@@ -32,7 +39,12 @@
     "check:app-composition": "node ../sdkwork-specs/tools/verify-repo.mjs --root .",
     "db:postgres:plan": "cargo run --manifest-path ../sdkwork-database/Cargo.toml -p sdkwork-database-cli -- --app-root . plan --engine postgres",
     "db:postgres:init": "cargo run --manifest-path ../sdkwork-database/Cargo.toml -p sdkwork-database-cli -- --app-root . init --engine postgres",
-    "topology:validate": "node ../sdkwork-app-topology/scripts/sdkwork-topology.mjs validate --root . --spec specs/topology.spec.json"
+    "topology:validate": "node ../sdkwork-app-topology/scripts/sdkwork-topology.mjs validate --root . --spec specs/topology.spec.json",
+    "_sdkwork:test": "vitest run",
+    "_sdkwork:check": "pnpm run check:app-composition",
+    "_sdkwork:clean": "cargo clean",
+    "_sdkwork:verify": "pnpm run check && pnpm run test",
+    "_sdkwork:build": "cargo build --workspace --release"
   },
   "devDependencies": {
     "@sdkwork/sdk-common": "workspace:*",
@@ -40,7 +52,8 @@
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "typescript": "^6.0.2",
-    "vitest": "^4.1.2"
+    "vitest": "^4.1.2",
+    "@sdkwork/app-topology": "workspace:*"
   },
   "peerDependencies": {
     "react": ">=18.2.0 <20.0.0",
