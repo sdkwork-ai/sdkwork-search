@@ -1,10 +1,14 @@
 [package]
+rust-version.workspace = true
 name = "sdkwork-search-provider-memory"
 version.workspace = true
 edition.workspace = true
 license.workspace = true
 description = "In-memory SearchProvider implementation for tests and small datasets."
 
+
+[lints]
+workspace = true
 [lib]
 path = "src/lib.rs"
 

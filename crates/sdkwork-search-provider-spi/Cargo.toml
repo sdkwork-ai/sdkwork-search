@@ -1,10 +1,14 @@
 [package]
+rust-version.workspace = true
 name = "sdkwork-search-provider-spi"
 version.workspace = true
 edition.workspace = true
 license.workspace = true
 description = "SDKWork Search provider SPI - pluggable search engine abstraction (WEB_BACKEND_SPEC.md, RUST_CODE_SPEC.md)."
 
+
+[lints]
+workspace = true
 [lib]
 path = "src/lib.rs"
 

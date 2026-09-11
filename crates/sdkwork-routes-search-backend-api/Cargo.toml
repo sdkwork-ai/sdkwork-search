@@ -1,10 +1,14 @@
 [package]
+rust-version.workspace = true
 name = "sdkwork-routes-search-backend-api"
 version.workspace = true
 edition.workspace = true
 license.workspace = true
 description = "SDKWork Search backend-api route crate with sdkwork-web-contract integration."
 
+
+[lints]
+workspace = true
 [lib]
 path = "src/lib.rs"
 

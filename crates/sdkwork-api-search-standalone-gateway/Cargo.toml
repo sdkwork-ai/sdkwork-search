@@ -1,4 +1,5 @@
 [package]
+rust-version.workspace = true
 name = "sdkwork-api-search-standalone-gateway"
 version.workspace = true
 edition.workspace = true
@@ -9,6 +10,9 @@ description = "HTTP API server process for SDKWork Search."
 name = "sdkwork-api-search-standalone-gateway"
 path = "src/main.rs"
 
+
+[lints]
+workspace = true
 [dependencies]
 sdkwork-api-search-assembly.workspace = true
 sdkwork-web-bootstrap = { workspace = true, features = ["sqlx"] }
