@@ -3,6 +3,7 @@
 //! These tests verify the crate assembles correctly without requiring a live
 //! PostgreSQL connection: schema constants are well-formed, the migration SQL is
 //! embedded, params structs can be constructed, and error conversion works.
+// WORKSPACE-PATH:allow-fixture: fixtures name a foreign checkout root, drive, or home directory to exercise path handling, so the literal is the value under assertion rather than a binding this build resolves
 
 use sdkwork_search_indexing_repository_sqlx::db::schema::{
     SEARCH_DOCUMENT_TABLE, SEARCH_INDEX_TABLE, SEARCH_QUERY_SUGGESTION_TABLE,

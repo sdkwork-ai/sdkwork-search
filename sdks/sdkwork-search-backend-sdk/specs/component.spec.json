@@ -11,7 +11,7 @@
   ],
   "generator": {
     "package": "@sdkwork/sdk-generator",
-    "entrypoint": "E:\\sdkwork-space\\sdkwork-sdk-generator\\bin\\sdkgen.js",
+    "entrypoint": "../sdkwork-sdk-generator/bin/sdkgen.js",
     "standardProfile": "sdkwork-v3"
   },
   "contracts": {
