@@ -6,7 +6,7 @@
     "name": "sdkwork-search",
     "repository": "sdkwork-ai/sdkwork-search",
     "sourcePath": ".",
-    "configPath": "sdkwork.app.config.json"
+    "configPath": "agent.app.config.json"
   },
   "release": {
     "artifactPrefix": "sdkwork-search",

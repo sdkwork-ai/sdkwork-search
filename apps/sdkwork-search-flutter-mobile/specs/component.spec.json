@@ -16,7 +16,7 @@
     ],
     "generated": false,
     "manifests": [
-      "sdkwork.app.config.json",
+      "agent.app.config.json",
       "pubspec.yaml"
     ]
   },
@@ -79,7 +79,7 @@
     "dependencyApiSurfaces": [],
     "events": [],
     "configKeys": [
-      "sdkwork.app.config.json"
+      "agent.app.config.json"
     ]
   },
   "verification": {

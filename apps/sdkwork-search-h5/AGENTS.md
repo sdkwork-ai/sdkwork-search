@@ -12,7 +12,7 @@
 ## Spec Resolution Order
 
 1. This `AGENTS.md` and application-level specs.
-2. `sdkwork.app.config.json` for application metadata.
+2. `agent.app.config.json` for application metadata.
 3. Local `specs/` for component-level contracts.
 4. `.sdkwork/` for local skills and plugins.
 5. `../../sdkwork-specs/` for root standards.
