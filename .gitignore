@@ -86,3 +86,13 @@ temp/
 *.tmp
 *.temp
 .next/
+
+# ---- TypeScript compiler output emitted beside sources (never commit) ----
+apps/**/src/**/*.js
+apps/**/src/**/*.js.map
+apps/**/src/**/*.d.ts
+apps/**/src/**/*.d.ts.map
+sdks/**/src/**/*.js
+sdks/**/src/**/*.js.map
+sdks/**/src/**/*.d.ts
+sdks/**/src/**/*.d.ts.map
