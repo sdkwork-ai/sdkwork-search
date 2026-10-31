@@ -5,6 +5,8 @@
   "language": "typescript",
   "sdkType": "app",
   "packageName": "sdkwork-search-app-sdk-generated-typescript",
+  "transportPackageName": "sdkwork-search-app-sdk-generated-typescript",
+  "consumerPackageName": "@sdkwork/search-app-sdk",
   "generator": "@sdkwork/sdk-generator",
   "capabilities": {
     "supportsGeneratedTests": true,
@@ -26,7 +28,5 @@
     "stateRoots": [
       ".sdkwork/"
     ]
-  },
-  "transportPackageName": "sdkwork-search-app-sdk-generated-typescript",
-  "consumerPackageName": "@sdkwork/search-app-sdk"
+  }
 }

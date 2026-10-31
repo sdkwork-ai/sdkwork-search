@@ -11,8 +11,8 @@
   "status": "ok",
   "mode": "apply",
   "hasChanges": true,
-  "hasDestructiveChanges": false,
-  "changeFingerprint": "3b5bfb48a5a4a363841777e929d7446e3d36b33568e36e12c4ac9f19609a0778",
+  "hasDestructiveChanges": true,
+  "changeFingerprint": "b7d415c86f61e61d81fd68c0e6fb9353be882653424d075b0cb89161247fa70c",
   "changeImpact": {
     "schemaVersion": 1,
     "areas": [
@@ -22,7 +22,6 @@
       "build-metadata",
       "publish-workflow",
       "documentation",
-      "custom-scaffold",
       "unknown"
     ],
     "details": [
@@ -54,7 +53,7 @@
           "src/types/sdk-work-resource-data.ts",
           "src/types/sdk-work-resource-response.ts",
           "src/types/search-document.ts",
-          "src/types/search-events-create-response.ts",
+          "src/types/search-events-create-response201.ts",
           "src/types/search-index-list-response.ts",
           "src/types/search-index.ts",
           "src/types/search-indexes-list-response.ts",
@@ -63,8 +62,8 @@
           "src/types/search-promotion-item.ts",
           "src/types/search-promotion-request.ts",
           "src/types/search-promotion-response.ts",
-          "src/types/search-promotions-create-response.ts",
-          "src/types/search-queries-create-response.ts",
+          "src/types/search-promotions-create-response201.ts",
+          "src/types/search-queries-create-response201.ts",
           "src/types/search-query-request.ts",
           "src/types/search-query-response.ts",
           "src/types/search-recent-queries-list-response.ts",
@@ -74,16 +73,21 @@
           "src/types/search-recommendation-item.ts",
           "src/types/search-recommendation-request.ts",
           "src/types/search-recommendation-response.ts",
-          "src/types/search-recommendations-create-response.ts",
+          "src/types/search-recommendations-create-response201.ts",
           "src/types/search-result.ts",
-          "src/types/search-semantic-queries-create-response.ts",
+          "src/types/search-semantic-queries-create-response201.ts",
           "src/types/search-semantic-query-request.ts",
           "src/types/search-semantic-query-response.ts",
           "src/types/search-semantic-result.ts",
+          "src/types/search-suggestion.d.ts",
           "src/types/search-suggestion.ts",
+          "src/types/search-suggestions-list-response.d.ts",
           "src/types/search-suggestions-list-response.ts",
+          "src/types/search-suggestions-response.d.ts",
           "src/types/search-suggestions-response.ts",
+          "src/types/search-user-event-response.d.ts",
           "src/types/search-user-event-response.ts",
+          "src/types/search-user-event.d.ts",
           "src/types/search-user-event.ts"
         ]
       },
@@ -117,15 +121,7 @@
         "area": "documentation",
         "paths": [
           "CHANGELOG.md",
-          "custom/README.md",
           "README.md"
-        ]
-      },
-      {
-        "area": "custom-scaffold",
-        "paths": [
-          "custom/build-runtime.mjs",
-          "custom/README.md"
         ]
       },
       {
@@ -137,7 +133,7 @@
       }
     ],
     "requiresVerification": true,
-    "summary": "Detected impact areas: api-surface, models, runtime, build-metadata, publish-workflow, documentation, custom-scaffold, unknown. Verification is required."
+    "summary": "Detected impact areas: api-surface, models, runtime, build-metadata, publish-workflow, documentation, unknown. Verification is required."
   },
   "executionDecision": {
     "schemaVersion": 1,
@@ -147,8 +143,9 @@
     "applyRequiresExpectedFingerprint": false,
     "summary": "Changes have been applied. Run the required verification plan now.",
     "reasons": [
+      "backed-up-generated-files",
+      "deleted-generated-files",
       "manual-review-required",
-      "preserved-legacy-files",
       "unknown-impact",
       "verification-required"
     ]
@@ -161,8 +158,8 @@
         "id": "verify-check",
         "title": "Unified package check",
         "required": true,
-        "rationale": "Validate the generated package with the unified publish helper. Triggered by: api-surface, models, runtime, build-metadata, publish-workflow, documentation, custom-scaffold, unknown.",
-        "workingDirectory": "E:\\sdkwork-space\\sdkwork-search\\sdks\\sdkwork-search-app-sdk\\sdkwork-search-app-sdk-typescript\\generated\\server-openapi",
+        "rationale": "Validate the generated package with the unified publish helper. Triggered by: api-surface, models, runtime, build-metadata, publish-workflow, documentation, unknown.",
+        "workingDirectory": "D:\\sdkwork-space\\sdkwork-search\\sdks\\sdkwork-search-app-sdk\\sdkwork-search-app-sdk-typescript\\generated\\server-openapi",
         "command": "node",
         "args": [
           "./bin/publish-core.mjs",
@@ -179,8 +176,8 @@
         "id": "verify-build",
         "title": "Unified package build",
         "required": true,
-        "rationale": "Run the full package build because this language uses a lighter check path than the final build. Triggered by: api-surface, models, runtime, build-metadata, publish-workflow, documentation, custom-scaffold, unknown.",
-        "workingDirectory": "E:\\sdkwork-space\\sdkwork-search\\sdks\\sdkwork-search-app-sdk\\sdkwork-search-app-sdk-typescript\\generated\\server-openapi",
+        "rationale": "Run the full package build because this language uses a lighter check path than the final build. Triggered by: api-surface, models, runtime, build-metadata, publish-workflow, documentation, unknown.",
+        "workingDirectory": "D:\\sdkwork-space\\sdkwork-search\\sdks\\sdkwork-search-app-sdk\\sdkwork-search-app-sdk-typescript\\generated\\server-openapi",
         "command": "node",
         "args": [
           "./bin/publish-core.mjs",
@@ -198,14 +195,14 @@
   "verificationPlan": {
     "shouldRun": true,
     "runPhase": "now",
-    "summary": "Detected impact areas: api-surface, models, runtime, build-metadata, publish-workflow, documentation, custom-scaffold, unknown. Verification is required. Run the required verification commands now against the generated SDK output.",
+    "summary": "Detected impact areas: api-surface, models, runtime, build-metadata, publish-workflow, documentation, unknown. Verification is required. Run the required verification commands now against the generated SDK output.",
     "steps": [
       {
         "id": "check",
         "title": "Unified package check",
         "required": true,
-        "rationale": "Validate the generated package with the unified publish helper. Triggered by: api-surface, models, runtime, build-metadata, publish-workflow, documentation, custom-scaffold, unknown.",
-        "workingDirectory": "E:\\sdkwork-space\\sdkwork-search\\sdks\\sdkwork-search-app-sdk\\sdkwork-search-app-sdk-typescript\\generated\\server-openapi",
+        "rationale": "Validate the generated package with the unified publish helper. Triggered by: api-surface, models, runtime, build-metadata, publish-workflow, documentation, unknown.",
+        "workingDirectory": "D:\\sdkwork-space\\sdkwork-search\\sdks\\sdkwork-search-app-sdk\\sdkwork-search-app-sdk-typescript\\generated\\server-openapi",
         "command": "node",
         "args": [
           "./bin/publish-core.mjs",
@@ -222,8 +219,8 @@
         "id": "build",
         "title": "Unified package build",
         "required": true,
-        "rationale": "Run the full package build because this language uses a lighter check path than the final build. Triggered by: api-surface, models, runtime, build-metadata, publish-workflow, documentation, custom-scaffold, unknown.",
-        "workingDirectory": "E:\\sdkwork-space\\sdkwork-search\\sdks\\sdkwork-search-app-sdk\\sdkwork-search-app-sdk-typescript\\generated\\server-openapi",
+        "rationale": "Run the full package build because this language uses a lighter check path than the final build. Triggered by: api-surface, models, runtime, build-metadata, publish-workflow, documentation, unknown.",
+        "workingDirectory": "D:\\sdkwork-space\\sdkwork-search\\sdks\\sdkwork-search-app-sdk\\sdkwork-search-app-sdk-typescript\\generated\\server-openapi",
         "command": "node",
         "args": [
           "./bin/publish-core.mjs",
@@ -244,7 +241,7 @@
     "language": "typescript",
     "sdkType": "app",
     "protocol": "http",
-    "outputPath": "E:\\sdkwork-space\\sdkwork-search\\sdks\\sdkwork-search-app-sdk\\sdkwork-search-app-sdk-typescript\\generated\\server-openapi",
+    "outputPath": "D:\\sdkwork-space\\sdkwork-search\\sdks\\sdkwork-search-app-sdk\\sdkwork-search-app-sdk-typescript\\generated\\server-openapi",
     "packageName": "@sdkwork/search-app-sdk"
   },
   "versioning": {
@@ -261,14 +258,21 @@
   "syncSummary": {
     "dryRun": false,
     "controlPlaneEnabled": true,
-    "writtenFiles": 67,
-    "skippedScaffoldFiles": 0,
+    "writtenFiles": 65,
+    "skippedScaffoldFiles": 2,
     "skippedUnchangedGeneratedFiles": 0,
-    "deletedGeneratedFiles": 0,
+    "deletedGeneratedFiles": 5,
     "changeSummaryPath": ".sdkwork/sdkwork-generator-changes.json",
-    "changeFingerprint": "3b5bfb48a5a4a363841777e929d7446e3d36b33568e36e12c4ac9f19609a0778",
+    "changeFingerprint": "b7d415c86f61e61d81fd68c0e6fb9353be882653424d075b0cb89161247fa70c",
     "changes": {
       "createdGeneratedFiles": [
+        "src/types/search-events-create-response201.ts",
+        "src/types/search-promotions-create-response201.ts",
+        "src/types/search-queries-create-response201.ts",
+        "src/types/search-recommendations-create-response201.ts",
+        "src/types/search-semantic-queries-create-response201.ts"
+      ],
+      "updatedGeneratedFiles": [
         "bin/publish-core.mjs",
         "bin/publish.ps1",
         "bin/publish.sh",
@@ -302,7 +306,6 @@
         "src/types/sdk-work-resource-data.ts",
         "src/types/sdk-work-resource-response.ts",
         "src/types/search-document.ts",
-        "src/types/search-events-create-response.ts",
         "src/types/search-index-list-response.ts",
         "src/types/search-index.ts",
         "src/types/search-indexes-list-response.ts",
@@ -311,8 +314,6 @@
         "src/types/search-promotion-item.ts",
         "src/types/search-promotion-request.ts",
         "src/types/search-promotion-response.ts",
-        "src/types/search-promotions-create-response.ts",
-        "src/types/search-queries-create-response.ts",
         "src/types/search-query-request.ts",
         "src/types/search-query-response.ts",
         "src/types/search-recent-queries-list-response.ts",
@@ -322,9 +323,7 @@
         "src/types/search-recommendation-item.ts",
         "src/types/search-recommendation-request.ts",
         "src/types/search-recommendation-response.ts",
-        "src/types/search-recommendations-create-response.ts",
         "src/types/search-result.ts",
-        "src/types/search-semantic-queries-create-response.ts",
         "src/types/search-semantic-query-request.ts",
         "src/types/search-semantic-query-response.ts",
         "src/types/search-semantic-result.ts",
@@ -335,15 +334,86 @@
         "src/types/search-user-event.ts",
         "tsconfig.json"
       ],
-      "updatedGeneratedFiles": [],
       "unchangedGeneratedFiles": [],
-      "deletedGeneratedFiles": [],
-      "scaffoldedFiles": [
+      "deletedGeneratedFiles": [
+        "src/types/search-suggestion.d.ts",
+        "src/types/search-suggestions-list-response.d.ts",
+        "src/types/search-suggestions-response.d.ts",
+        "src/types/search-user-event-response.d.ts",
+        "src/types/search-user-event.d.ts"
+      ],
+      "scaffoldedFiles": [],
+      "preservedScaffoldFiles": [
         "custom/build-runtime.mjs",
         "custom/README.md"
       ],
-      "preservedScaffoldFiles": [],
-      "backedUpFiles": []
+      "backedUpFiles": [
+        "bin/publish-core.mjs",
+        "bin/publish.ps1",
+        "bin/publish.sh",
+        "bin/sdk-gen.bat",
+        "bin/sdk-gen.sh",
+        "CHANGELOG.md",
+        "LICENSE",
+        "package.json",
+        "README.md",
+        "sdkwork-sdk.json",
+        "src/api/base.ts",
+        "src/api/index.ts",
+        "src/api/paths.ts",
+        "src/api/search.ts",
+        "src/auth/index.ts",
+        "src/http/client.ts",
+        "src/http/index.ts",
+        "src/index.ts",
+        "src/sdk.ts",
+        "src/types/common.ts",
+        "src/types/field-error.ts",
+        "src/types/index.ts",
+        "src/types/page-info.ts",
+        "src/types/problem-detail.ts",
+        "src/types/sdk-work-api-response.ts",
+        "src/types/sdk-work-command-data.ts",
+        "src/types/sdk-work-command-response.ts",
+        "src/types/sdk-work-list-response.ts",
+        "src/types/sdk-work-page-data.ts",
+        "src/types/sdk-work-platform-error-code.ts",
+        "src/types/sdk-work-resource-data.ts",
+        "src/types/sdk-work-resource-response.ts",
+        "src/types/search-document.ts",
+        "src/types/search-index-list-response.ts",
+        "src/types/search-index.ts",
+        "src/types/search-indexes-list-response.ts",
+        "src/types/search-page-info.ts",
+        "src/types/search-promotion-context.ts",
+        "src/types/search-promotion-item.ts",
+        "src/types/search-promotion-request.ts",
+        "src/types/search-promotion-response.ts",
+        "src/types/search-query-request.ts",
+        "src/types/search-query-response.ts",
+        "src/types/search-recent-queries-list-response.ts",
+        "src/types/search-recent-query-list-response.ts",
+        "src/types/search-recent-query.ts",
+        "src/types/search-recommendation-context.ts",
+        "src/types/search-recommendation-item.ts",
+        "src/types/search-recommendation-request.ts",
+        "src/types/search-recommendation-response.ts",
+        "src/types/search-result.ts",
+        "src/types/search-semantic-query-request.ts",
+        "src/types/search-semantic-query-response.ts",
+        "src/types/search-semantic-result.ts",
+        "src/types/search-suggestion.d.ts",
+        "src/types/search-suggestion.ts",
+        "src/types/search-suggestions-list-response.d.ts",
+        "src/types/search-suggestions-list-response.ts",
+        "src/types/search-suggestions-response.d.ts",
+        "src/types/search-suggestions-response.ts",
+        "src/types/search-user-event-response.d.ts",
+        "src/types/search-user-event-response.ts",
+        "src/types/search-user-event.d.ts",
+        "src/types/search-user-event.ts",
+        "tsconfig.json"
+      ]
     },
     "impact": {
       "schemaVersion": 1,
@@ -354,7 +424,6 @@
         "build-metadata",
         "publish-workflow",
         "documentation",
-        "custom-scaffold",
         "unknown"
       ],
       "details": [
@@ -386,7 +455,7 @@
             "src/types/sdk-work-resource-data.ts",
             "src/types/sdk-work-resource-response.ts",
             "src/types/search-document.ts",
-            "src/types/search-events-create-response.ts",
+            "src/types/search-events-create-response201.ts",
             "src/types/search-index-list-response.ts",
             "src/types/search-index.ts",
             "src/types/search-indexes-list-response.ts",
@@ -395,8 +464,8 @@
             "src/types/search-promotion-item.ts",
             "src/types/search-promotion-request.ts",
             "src/types/search-promotion-response.ts",
-            "src/types/search-promotions-create-response.ts",
-            "src/types/search-queries-create-response.ts",
+            "src/types/search-promotions-create-response201.ts",
+            "src/types/search-queries-create-response201.ts",
             "src/types/search-query-request.ts",
             "src/types/search-query-response.ts",
             "src/types/search-recent-queries-list-response.ts",
@@ -406,16 +475,21 @@
             "src/types/search-recommendation-item.ts",
             "src/types/search-recommendation-request.ts",
             "src/types/search-recommendation-response.ts",
-            "src/types/search-recommendations-create-response.ts",
+            "src/types/search-recommendations-create-response201.ts",
             "src/types/search-result.ts",
-            "src/types/search-semantic-queries-create-response.ts",
+            "src/types/search-semantic-queries-create-response201.ts",
             "src/types/search-semantic-query-request.ts",
             "src/types/search-semantic-query-response.ts",
             "src/types/search-semantic-result.ts",
+            "src/types/search-suggestion.d.ts",
             "src/types/search-suggestion.ts",
+            "src/types/search-suggestions-list-response.d.ts",
             "src/types/search-suggestions-list-response.ts",
+            "src/types/search-suggestions-response.d.ts",
             "src/types/search-suggestions-response.ts",
+            "src/types/search-user-event-response.d.ts",
             "src/types/search-user-event-response.ts",
+            "src/types/search-user-event.d.ts",
             "src/types/search-user-event.ts"
           ]
         },
@@ -449,15 +523,7 @@
           "area": "documentation",
           "paths": [
             "CHANGELOG.md",
-            "custom/README.md",
             "README.md"
-          ]
-        },
-        {
-          "area": "custom-scaffold",
-          "paths": [
-            "custom/build-runtime.mjs",
-            "custom/README.md"
           ]
         },
         {
@@ -469,19 +535,19 @@
         }
       ],
       "requiresVerification": true,
-      "summary": "Detected impact areas: api-surface, models, runtime, build-metadata, publish-workflow, documentation, custom-scaffold, unknown. Verification is required."
+      "summary": "Detected impact areas: api-surface, models, runtime, build-metadata, publish-workflow, documentation, unknown. Verification is required."
     },
     "verificationPlan": {
       "shouldRun": true,
       "runPhase": "now",
-      "summary": "Detected impact areas: api-surface, models, runtime, build-metadata, publish-workflow, documentation, custom-scaffold, unknown. Verification is required. Run the required verification commands now against the generated SDK output.",
+      "summary": "Detected impact areas: api-surface, models, runtime, build-metadata, publish-workflow, documentation, unknown. Verification is required. Run the required verification commands now against the generated SDK output.",
       "steps": [
         {
           "id": "check",
           "title": "Unified package check",
           "required": true,
-          "rationale": "Validate the generated package with the unified publish helper. Triggered by: api-surface, models, runtime, build-metadata, publish-workflow, documentation, custom-scaffold, unknown.",
-          "workingDirectory": "E:\\sdkwork-space\\sdkwork-search\\sdks\\sdkwork-search-app-sdk\\sdkwork-search-app-sdk-typescript\\generated\\server-openapi",
+          "rationale": "Validate the generated package with the unified publish helper. Triggered by: api-surface, models, runtime, build-metadata, publish-workflow, documentation, unknown.",
+          "workingDirectory": "D:\\sdkwork-space\\sdkwork-search\\sdks\\sdkwork-search-app-sdk\\sdkwork-search-app-sdk-typescript\\generated\\server-openapi",
           "command": "node",
           "args": [
             "./bin/publish-core.mjs",
@@ -498,8 +564,8 @@
           "id": "build",
           "title": "Unified package build",
           "required": true,
-          "rationale": "Run the full package build because this language uses a lighter check path than the final build. Triggered by: api-surface, models, runtime, build-metadata, publish-workflow, documentation, custom-scaffold, unknown.",
-          "workingDirectory": "E:\\sdkwork-space\\sdkwork-search\\sdks\\sdkwork-search-app-sdk\\sdkwork-search-app-sdk-typescript\\generated\\server-openapi",
+          "rationale": "Run the full package build because this language uses a lighter check path than the final build. Triggered by: api-surface, models, runtime, build-metadata, publish-workflow, documentation, unknown.",
+          "workingDirectory": "D:\\sdkwork-space\\sdkwork-search\\sdks\\sdkwork-search-app-sdk\\sdkwork-search-app-sdk-typescript\\generated\\server-openapi",
           "command": "node",
           "args": [
             "./bin/publish-core.mjs",
@@ -522,13 +588,80 @@
       "applyRequiresExpectedFingerprint": false,
       "summary": "Changes have been applied. Run the required verification plan now.",
       "reasons": [
+        "backed-up-generated-files",
+        "deleted-generated-files",
         "manual-review-required",
-        "preserved-legacy-files",
         "unknown-impact",
         "verification-required"
       ]
     },
-    "backedUpFiles": [],
-    "preservedLegacyFiles": true
+    "backedUpFiles": [
+      "bin/publish-core.mjs",
+      "bin/publish.ps1",
+      "bin/publish.sh",
+      "bin/sdk-gen.bat",
+      "bin/sdk-gen.sh",
+      "CHANGELOG.md",
+      "LICENSE",
+      "package.json",
+      "README.md",
+      "sdkwork-sdk.json",
+      "src/api/base.ts",
+      "src/api/index.ts",
+      "src/api/paths.ts",
+      "src/api/search.ts",
+      "src/auth/index.ts",
+      "src/http/client.ts",
+      "src/http/index.ts",
+      "src/index.ts",
+      "src/sdk.ts",
+      "src/types/common.ts",
+      "src/types/field-error.ts",
+      "src/types/index.ts",
+      "src/types/page-info.ts",
+      "src/types/problem-detail.ts",
+      "src/types/sdk-work-api-response.ts",
+      "src/types/sdk-work-command-data.ts",
+      "src/types/sdk-work-command-response.ts",
+      "src/types/sdk-work-list-response.ts",
+      "src/types/sdk-work-page-data.ts",
+      "src/types/sdk-work-platform-error-code.ts",
+      "src/types/sdk-work-resource-data.ts",
+      "src/types/sdk-work-resource-response.ts",
+      "src/types/search-document.ts",
+      "src/types/search-index-list-response.ts",
+      "src/types/search-index.ts",
+      "src/types/search-indexes-list-response.ts",
+      "src/types/search-page-info.ts",
+      "src/types/search-promotion-context.ts",
+      "src/types/search-promotion-item.ts",
+      "src/types/search-promotion-request.ts",
+      "src/types/search-promotion-response.ts",
+      "src/types/search-query-request.ts",
+      "src/types/search-query-response.ts",
+      "src/types/search-recent-queries-list-response.ts",
+      "src/types/search-recent-query-list-response.ts",
+      "src/types/search-recent-query.ts",
+      "src/types/search-recommendation-context.ts",
+      "src/types/search-recommendation-item.ts",
+      "src/types/search-recommendation-request.ts",
+      "src/types/search-recommendation-response.ts",
+      "src/types/search-result.ts",
+      "src/types/search-semantic-query-request.ts",
+      "src/types/search-semantic-query-response.ts",
+      "src/types/search-semantic-result.ts",
+      "src/types/search-suggestion.d.ts",
+      "src/types/search-suggestion.ts",
+      "src/types/search-suggestions-list-response.d.ts",
+      "src/types/search-suggestions-list-response.ts",
+      "src/types/search-suggestions-response.d.ts",
+      "src/types/search-suggestions-response.ts",
+      "src/types/search-user-event-response.d.ts",
+      "src/types/search-user-event-response.ts",
+      "src/types/search-user-event.d.ts",
+      "src/types/search-user-event.ts",
+      "tsconfig.json"
+    ],
+    "preservedLegacyFiles": false
   }
 }
