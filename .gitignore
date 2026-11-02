@@ -90,3 +90,7 @@ sdks/**/src/**/*.js
 sdks/**/src/**/*.js.map
 sdks/**/src/**/*.d.ts
 sdks/**/src/**/*.d.ts.map
+
+# Dart/Flutter local tool workspace (never commit)
+.dart_tool/
+**/.dart_tool/
