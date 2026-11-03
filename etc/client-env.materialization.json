@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "kind": "sdkwork.client-env-materialization",
+  "application": "sdkwork-search",
+  "profiles": [
+    "standalone.development",
+    "standalone.test",
+    "standalone.staging",
+    "standalone.demo",
+    "standalone.production",
+    "cloud.development",
+    "cloud.test",
+    "cloud.staging",
+    "cloud.demo",
+    "cloud.production"
+  ],
+  "surfaces": [
+    {
+      "id": "sdkwork-search-flutter-mobile",
+      "root": "apps/sdkwork-search-flutter-mobile",
+      "format": "flutter",
+      "runtimeTarget": "flutter-android",
+      "bindings": {},
+      "accessToken": {
+        "appId": "app-9pf3un",
+        "tenantId": "100001",
+        "organizationId": "0",
+        "permissionScope": [
+          "iam:self"
+        ]
+      }
+    },
+    {
+      "id": "sdkwork-search-h5",
+      "root": "apps/sdkwork-search-h5",
+      "format": "vite",
+      "runtimeTarget": "browser",
+      "bindings": {},
+      "accessToken": {
+        "appId": "app-hgmpln",
+        "tenantId": "100001",
+        "organizationId": "0",
+        "permissionScope": [
+          "iam:self"
+        ]
+      }
+    },
+    {
+      "id": "sdkwork-search-pc",
+      "root": "apps/sdkwork-search-pc",
+      "format": "vite",
+      "runtimeTarget": "browser",
+      "bindings": {},
+      "accessToken": {
+        "appId": "app-uobgmi",
+        "tenantId": "100001",
+        "organizationId": "0",
+        "permissionScope": [
+          "iam:self"
+        ]
+      }
+    }
+  ],
+  "sourceIdentity": {
+    "deploymentProfileKeys": [
+      "SDKWORK_SEARCH_DEPLOYMENT_PROFILE",
+      "SDKWORK_DEPLOYMENT_PROFILE"
+    ],
+    "environmentKeys": [
+      "SDKWORK_SEARCH_ENVIRONMENT",
+      "SDKWORK_ENVIRONMENT"
+    ],
+    "profileIdKeys": [
+      "SDKWORK_SEARCH_PROFILE_ID",
+      "SDKWORK_PROFILE_ID"
+    ]
+  }
+}
