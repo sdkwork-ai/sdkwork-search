@@ -8,7 +8,14 @@
     "officialWebsiteUrl": "https://sdkwork.com/apps/app-hgmpln",
     "appType": "APP_HTML"
   },
-  "backend": {},
+  "backend": {
+    "appId": "app-hgmpln",
+    "tenantId": "100001",
+    "organizationId": "0",
+    "accessTokenPermissionScope": [
+      "iam:self"
+    ]
+  },
   "runtime": {
     "supportedDeploymentProfiles": [
       "cloud"
