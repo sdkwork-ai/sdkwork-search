@@ -136,5 +136,27 @@
         "source": "openapi"
       }
     ]
+  },
+  "roles": {
+    "domainStandardRoles": [],
+    "roleExclusions": [],
+    "roleGrantExtensions": [
+      {
+        "roleCode": "app_user",
+        "patterns": [
+          "search.events.create",
+          "search.promotions.create",
+          "search.queries.create",
+          "search.recommendations.create",
+          "search.semantic_queries.create"
+        ]
+      },
+      {
+        "roleCode": "platform_system_admin",
+        "patterns": [
+          "search.*"
+        ]
+      }
+    ]
   }
 }
