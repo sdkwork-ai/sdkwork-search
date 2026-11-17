@@ -15,7 +15,10 @@
     "appId": "sdkwork-search",
     "serviceId": "sdkwork-search",
     "owner": "sdkwork-search",
-    "domain": "search"
+    "domain": "search",
+    "accessTokenPermissionScope": [
+      "iam:self"
+    ]
   },
   "runtime": {
     "family": "server",
