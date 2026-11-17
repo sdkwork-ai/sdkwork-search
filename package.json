@@ -44,7 +44,8 @@
     "_sdkwork:check": "pnpm run check:app-composition",
     "_sdkwork:clean": "cargo clean",
     "_sdkwork:verify": "pnpm run check && pnpm run test",
-    "_sdkwork:build": "cargo build --workspace --release"
+    "_sdkwork:build": "cargo build --workspace --release",
+    "check:release-access-token:require-anchor": "node ../sdkwork-specs/tools/check-release-access-token-env.mjs --root . --require-anchor"
   },
   "devDependencies": {
     "@sdkwork/sdk-common": "workspace:*",

@@ -22,7 +22,7 @@
       "runtimeTarget": "flutter-android",
       "bindings": {},
       "accessToken": {
-        "appId": "app-9pf3un",
+        "appIdEnv": "SDKWORK_DEPLOY_APPLICATION_ID",
         "tenantId": "100001",
         "organizationId": "0",
         "permissionScope": [
@@ -37,7 +37,7 @@
       "runtimeTarget": "browser",
       "bindings": {},
       "accessToken": {
-        "appId": "app-hgmpln",
+        "appIdEnv": "SDKWORK_DEPLOY_APPLICATION_ID",
         "tenantId": "100001",
         "organizationId": "0",
         "permissionScope": [
@@ -52,7 +52,7 @@
       "runtimeTarget": "browser",
       "bindings": {},
       "accessToken": {
-        "appId": "app-uobgmi",
+        "appIdEnv": "SDKWORK_DEPLOY_APPLICATION_ID",
         "tenantId": "100001",
         "organizationId": "0",
         "permissionScope": [
